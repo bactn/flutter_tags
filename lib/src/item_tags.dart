@@ -30,6 +30,7 @@ class ItemTags extends StatefulWidget {
       this.pressEnabled = true,
       this.customData,
       this.textStyle = const TextStyle(fontSize: 14),
+      this.strutStyle = const StrutStyle(height: 1.5),
       this.alignment = MainAxisAlignment.center,
       this.combine = ItemTagsCombine.imageOrIconOrText,
       this.icon,
@@ -85,6 +86,9 @@ class ItemTags extends StatefulWidget {
 
   /// TextStyle of the [ItemTags]
   final TextStyle textStyle;
+
+  /// StrutStyle of the [ItemTags]
+  final StrutStyle strutStyle;
 
   /// TextStyle of the [ItemTags]
   final MainAxisAlignment alignment;
@@ -278,6 +282,7 @@ class _ItemTagsState extends State<ItemTags> {
       overflow: widget.textOverflow,
       textScaleFactor: widget.textScaleFactor,
       style: _textStyle,
+      strutStyle: _strutStyle,
     );
     final Widget icon = widget.icon != null
         ? Container(
@@ -432,6 +437,11 @@ class _ItemTagsState extends State<ItemTags> {
     return widget.textStyle.apply(
       color: _dataList!.active ? widget.textActiveColor : widget.textColor,
     );
+  }
+
+  ///StrutStyle
+  StrutStyle get _strutStyle {
+    return widget.strutStyle;
   }
 
   /// Single item selection
